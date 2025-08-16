@@ -1,0 +1,95 @@
+<style>
+
+    .clef {
+        position:absolute;
+        font-size: 5rem;
+        transform: rotate(35deg) scale(1.5);
+        margin-right: 20px;
+        top: -10px;
+    }
+
+    nav {
+        position: relative;
+        background-color: black;
+        color: white;
+        overflow: hidden;
+        padding-left: 40px;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        height: 100%;
+        width: 100%;
+
+        cursor: pointer;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    li:nth-child(2) {
+        margin-left: 80px;
+    }
+
+    li > a {
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        transition: .10s ease-in;
+        margin: 10px;
+        border-radius: 10px;
+        align-items: center;
+    }
+
+    li > .greeting {
+        padding: 20px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        transition: .10s ease-in;
+        margin: 10px;
+        align-items: center;
+    }
+
+    li > a:hover {
+        height: 100%;
+        background-color: royalblue;
+        display: flex;
+        justify-content: center;
+    }
+
+    .spacer {
+        flex: 1;
+    }
+
+    .username {
+        color: royalblue;
+        font-weight: 900;
+        margin-left: 8px;
+    }
+
+
+</style>
+
+
+<nav>
+    <ul>
+        <li class='clef'>𝄞</li>
+        <li><a href="">Home</a></li>
+        <li><a href="">Log in</a></li>
+        <li><a href="">Log out</a></li>
+        <div class="spacer"></div>
+        <li><p class="greeting">Welcome <span class="username">{{user.username|capfirst}}!<span></p></li>
+    </ul>
+</nav>

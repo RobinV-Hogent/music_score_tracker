@@ -1,3 +1,15 @@
-<h1>Music Score Tracker</h1>
+{% extends "layout/base.html" %}
 
-<p>Welcome, {{ user.username }}!</p>
+
+
+{% block page_title %}
+    <h1>Music Score Tracker</h1>
+{% endblock page_title %}
+
+
+
+{% block page_content %}
+    <p>Welcome, {{ user.username }}!</p>
+
+    {% include "partials/score_card.html" %}
+{% endblock page_content %}

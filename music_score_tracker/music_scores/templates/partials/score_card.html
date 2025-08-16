@@ -1,0 +1,20 @@
+<style>
+.score_card {
+    background-color: #2a9d8f;
+    color: black;
+    width: 200px;
+}
+
+.score_card__preview {
+    width: 100%;
+    aspect-ratio: 9/16;
+    background-color: orange;
+}
+
+</style>
+
+<div class="score_card">
+    <div class="score_card__preview"></div>
+    <h3>{{ score_title|default:'{score_title_unknown}' }}</h3>
+    <p>{{ score_difficulty|default:'{score_diff_unknown}' }}</p>
+<div>
