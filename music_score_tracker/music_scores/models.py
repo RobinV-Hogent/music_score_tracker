@@ -1,7 +1,7 @@
 from django.db import models
-from enum import Enum
 from django.contrib.auth.models import User
-from enums import ScoreSignatures, ScoreDifficulty, ScoreInstrument
+from .enums import ScoreSignatures, ScoreDifficulty, ScoreInstrument
+from enum import Enum
 
 # Create your models here.
 
@@ -9,9 +9,9 @@ from enums import ScoreSignatures, ScoreDifficulty, ScoreInstrument
 class Score(models.Model):
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-    signature = models.CharField(max_length=50, choices=[(tag.value, tag.name) for tag in ScoreSignatures], default=ScoreSignatures.FOURFOUR)
-    difficulty = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in ScoreDifficulty], default=ScoreDifficulty.INTERMEDIATE)
-    instrument = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in ScoreInstrument], default=ScoreInstrument.PIANO)
+    signature = models.CharField(max_length=50, choices=[(tag.value, tag.name) for tag in ScoreSignatures], default=ScoreSignatures.FOURFOUR.value)
+    difficulty = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in ScoreDifficulty], default=ScoreDifficulty.INTERMEDIATE.value)
+    instrument = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in ScoreInstrument], default=ScoreInstrument.PIANO.value)
     measure_count = models.IntegerField(default=10, max_length=500)
     beats_per_minute = models.IntegerField(default=1,  max_length=250)
     
