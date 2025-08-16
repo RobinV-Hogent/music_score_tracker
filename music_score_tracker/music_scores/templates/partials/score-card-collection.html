@@ -1,0 +1,18 @@
+<style>
+
+    .score_card-collection {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+</style>
+
+<div class="score_card-collection">
+
+    {% for score in scores %}
+        {% include "partials/score_card.html" %}
+    {% endfor %}
+
+
+</div>

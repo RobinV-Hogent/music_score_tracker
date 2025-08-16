@@ -26,5 +26,6 @@
 {% block page_content %}
     <p>Welcome, {{ user.username }}!</p>
 
-    {% include "partials/score_card.html" %}
+
+    {% include 'partials/score-card-collection.html' with scores=scores %}
 {% endblock page_content %}
