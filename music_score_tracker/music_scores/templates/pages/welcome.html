@@ -3,8 +3,23 @@
 
 
 {% block page_title %}
-    <h1>Music Score Tracker</h1>
+    Music Score Tracker
 {% endblock page_title %}
+
+{% block page_desc %}
+    <div style="margin-bottom: 10px;">
+        Welcome to the 'Music Score Tracker'. This is your place where you can manage all of <span style="font-weight:bold; color: black">YOUR</span> music pieces in one place.
+    </div>
+
+    <div style="margin-bottom: 30px;">
+        Go ahead and add your first piece to the list!
+    </div>
+
+    <div style="margin-bottom: 30px;">
+        {% include "partials/button.html" with button_title="Add!" button_style="big" %}
+    </div>
+
+{% endblock page_desc %}
 
 
 

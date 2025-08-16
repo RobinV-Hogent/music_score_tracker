@@ -13,3 +13,22 @@
 body {
     background-color: whitesmoke;
 }
+
+
+main, .page_info {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: royalblue;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.20rem;
+    width: 50%;
+    color: gray;
+}

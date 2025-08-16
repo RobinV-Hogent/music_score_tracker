@@ -19,9 +19,17 @@
 
     {% include "partials/navbar.html" %}
 
+    <div class="page_info">
     <h1>
         {% block page_title %}{% endblock page_title %}
     </h1>
+
+    <h2>
+        {% block page_desc %}{% endblock page_desc %}
+    </h2>
+    </div>
+
+    
 
 
 </header>
