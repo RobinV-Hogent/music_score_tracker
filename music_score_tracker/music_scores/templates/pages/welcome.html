@@ -15,7 +15,7 @@
         Go ahead and add your first piece to the list!
     </div>
 
-    <div style="margin-bottom: 30px;">
+    <div style="margin-bottom: 80px;">
         {% include "partials/button.html" with button_title="Add!" button_style="big" %}
     </div>
 
@@ -24,8 +24,8 @@
 
 
 {% block page_content %}
-    <p>Welcome, {{ user.username }}!</p>
 
-
-    {% include 'partials/score-card-collection.html' with scores=scores %}
+    {% include 'partials/sub_layouts/header_content/variants/welcome.html' %}
+    
+    
 {% endblock page_content %}

@@ -1,0 +1,4 @@
+{% extends "partials/sub_layouts/header_content/header_content.html" %}
+
+{% block title %}Your Scores{% endblock title %}
+{% block content %}{% include 'partials/score-card-collection.html' with scores=scores %}{% endblock content %}

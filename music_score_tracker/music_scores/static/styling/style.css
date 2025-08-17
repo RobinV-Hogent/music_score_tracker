@@ -14,18 +14,6 @@ body {
     background-color: whitesmoke;
 }
 
-.score_card {
-    background-color: #2a9d8f;
-    color: black;
-    width: 200px;
-}
-
-.score_card__preview {
-    width: 100%;
-    aspect-ratio: 9/16;
-    background-color: orange;
-}
-
 
 main, .page_info {
     width: 80%;
