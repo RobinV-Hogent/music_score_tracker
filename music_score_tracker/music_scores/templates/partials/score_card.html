@@ -1,20 +1,33 @@
 <style>
 .score_card {
-    background-color: #2a9d8f;
+    background-color: none;
     color: black;
     width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .score_card__preview {
+    border-radius: 15px;
     width: 100%;
     aspect-ratio: 9/16;
-    background-color: orange;
+    background-color: lightgray;
+}
+
+.score_title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    word-wrap: break-word;
 }
 
 </style>
 
 <div class="score_card">
     <div class="score_card__preview"></div>
-    <p>{{ score_title|default:'{score_title_unknown}' }}</p>
-    <p>{{ score_difficulty|default:'{score_diff_unknown}' }}</p>
+    <div>
+        <p class="score_title">{{ score.title|default:'{score_title_unknown}' }}</p>
+        <p>{{ score_difficulty|default:'{score_diff_unknown}' }}</p>
+    </div>
 </div>

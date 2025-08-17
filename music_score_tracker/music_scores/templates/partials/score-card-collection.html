@@ -11,7 +11,7 @@
 <div class="score_card-collection">
 
     {% for score in scores %}
-        {% include "partials/score_card.html" %}
+        {% include "partials/score_card.html" with score=score %}
     {% endfor %}
 
 

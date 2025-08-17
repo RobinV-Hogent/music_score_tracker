@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .models import Score
 
 # Create your views here.
 @login_required
 def welcome(request):
-    return render(request, 'pages/welcome.html', {'scores': list(range(10))})
+    return render(request, 'pages/welcome.html', {'scores': [Score(title='Tanz'), Score(title='Mazurka')]})

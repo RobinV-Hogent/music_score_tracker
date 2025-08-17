@@ -20,6 +20,10 @@ main, .page_info {
     margin: 0 auto;
 }
 
+main {
+    padding-bottom: 100px;
+}
+
 h1 {
     color: royalblue;
     font-weight: 900;

@@ -25,7 +25,9 @@
 
 {% block page_content %}
 
-    {% include 'partials/sub_layouts/header_content/variants/welcome.html' %}
+
+    {% include 'partials/sub_title.html' with title='Your Scores' %}
+    {% include 'partials/score-card-collection.html' with scores=scores %}
     
     
 {% endblock page_content %}
