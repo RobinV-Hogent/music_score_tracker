@@ -83,12 +83,30 @@
 </style>
 
 
+{% comment %} <nav>
+    <ul>
+        <li class='clef'>𝄞</li>
+        <li><a href="{% url "welcome" %}">Home</a></li>
+        <li><a href="{% url "list" %}">List</a></li>
+        <li><a href="">Learning</a></li>
+        <div class="spacer"></div>
+        <li><p class="greeting">Welcome <span class="username">{{user.username|capfirst}}!<span></p></li>
+    </ul>
+</nav> {% endcomment %}
+
+
 <nav>
     <ul>
         <li class='clef'>𝄞</li>
-        <li><a href="">Home</a></li>
-        <li><a href="">List</a></li>
-        <li><a href="">Learning</a></li>
+        <li>
+            {% include 'partials/navbar_item.html' with shorthand='welcome' path='/' to='Home' %}
+        </li>
+        <li>
+            {% include 'partials/navbar_item.html' with shorthand='list' path='/list/' to='List' %}
+        </li>
+        <li>
+            {% include 'partials/navbar_item.html' with shorthand='learning' path='/learning/' to='Learning' %}
+        </li>
         <div class="spacer"></div>
         <li><p class="greeting">Welcome <span class="username">{{user.username|capfirst}}!<span></p></li>
     </ul>

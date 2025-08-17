@@ -1,0 +1,11 @@
+<style>
+
+    .active, .active:hover{
+        background-color: #89868f;
+    }
+    
+</style>
+
+<a href="{% url shorthand %}" class="{% if request.path == path %}active{% endif %}">
+      {{to}}
+</a>
