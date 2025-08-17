@@ -1,0 +1,12 @@
+{% extends "layout/base.html" %}
+
+{% block page_title %}Full Score Overview{% endblock page_title %}
+{% block page_desc %}
+    <div style="margin-bottom: 80px;">
+        This list shows all the scores you have added yourself
+    </div>
+{% endblock page_desc %}
+
+{% block page_content %}
+{% include 'partials/score_table_overview.html' %}
+{% endblock page_content %}
