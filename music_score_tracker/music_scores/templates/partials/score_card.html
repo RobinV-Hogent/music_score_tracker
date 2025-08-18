@@ -14,6 +14,25 @@
     width: 100%;
     aspect-ratio: 9/16;
     background-color: lightgray;
+    position: relative;
+    overflow: hidden;
+}
+
+.score_card_instrument {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: royalblue;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    user-select: none;
+}
+
+.score_card_img {
+    height: 100%;
 }
 
 .score_title {
@@ -25,9 +44,12 @@
 </style>
 
 <div class="score_card">
-    <div class="score_card__preview"></div>
+    <div class="score_card__preview">
+        <div class="score_card_instrument">{{ score.instrument }}</div>
+        <img class="score_card_img" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusescore.com%2Fstatic%2Fmusescore%2Fscoredata%2Fgen%2F0%2F7%2F2%2F5116270%2Fca66431f1ede3525d6030af36520961caee810c3%2Fscore_0.png%40850x1100%3Fno-cache%3D1545791262%26bgclr%3Dffffff&f=1&nofb=1&ipt=4c062ff92da6acce80c93ee725313667807a470f278de15f825e488f24c1a3f6" alt="">
+    </div>
     <div>
         <p class="score_title">{{ score.title|default:'{score_title_unknown}' }}</p>
-        <p>{{ score_difficulty|default:'{score_diff_unknown}' }}</p>
+        <p>{{ score.difficulty|default:'{score_diff_unknown}' }}</p>
     </div>
 </div>

@@ -6,7 +6,7 @@ from .forms import ScoreCreateForm
 # Create your views here.
 @login_required
 def welcome(request):
-    return render(request, 'pages/welcome.html', {'scores': [Score(title='Tanz'), Score(title='Mazurka')]})
+    return render(request, 'pages/welcome.html', {'scores': Score.objects.all()})
 
 @login_required
 def score_list(request):
