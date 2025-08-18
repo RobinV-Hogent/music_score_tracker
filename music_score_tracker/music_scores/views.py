@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Score
+from .forms import ScoreCreateForm
 
 # Create your views here.
 @login_required
@@ -36,14 +37,18 @@ def add_score(request):
     """
     
     if request.method == "POST":
-        # Add the post to the database
-        # Redirect to the new page with the newly created Score
-        ...
+        form = ScoreCreateForm(request.POST)
+        if form.is_valid():
+            score = form.save(commit=False)
+            score.user = request.user   # attach logged-in user
+            score.save()
+            return redirect("score_detail", id=score.id)  # redirect after success
+    else:
+        form = ScoreCreateForm()
+
+    return render(request, "pages/create_score.html", {"form": form})
     
-    # If the method was GET, send the user to the page with the form
     
-    # return render(request, '<p>lol</p>')
-    return HttpResponse("<h1>Hello, World!</h1><p>This is raw HTML.</p>")
 
 @login_required
 def add_feedback_to_score(request):
