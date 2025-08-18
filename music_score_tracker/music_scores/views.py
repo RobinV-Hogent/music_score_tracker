@@ -8,16 +8,32 @@ from .forms import ScoreCreateForm
 def welcome(request):
     
     if request.method == 'POST':
-        score_form_helper(request, 'welcome')
+        form = ScoreCreateForm(request.POST)
+        score_form_helper(request, form, 'welcome')
     
-    scores = scores = Score.objects.filter(user=request.user)
+    scores = Score.objects.filter(user=request.user)
     form = ScoreCreateForm()
     
     
     return render(request, 'pages/welcome.html', {'scores': scores, 'form': form})
 
-def score_form_helper(request, page):
-    form = ScoreCreateForm(request.POST)
+
+@login_required
+def add_score(request):
+    """
+    Page with form that allows the user to add new scores
+    """
+    
+    if request.method == "POST":
+        form = ScoreCreateForm(request.POST)
+        return score_form_helper(request, form, 'welcome')  # redirect after success
+    else:
+        form = ScoreCreateForm()
+
+    return render(request, "pages/create_score.html", {"form": form})
+
+
+def score_form_helper(request, form, page):
     if form.is_valid():
         score: Score = form.save(commit=False)
         score.user = request.user   # attach logged-in user
@@ -47,21 +63,7 @@ def specific_score(request, score_id:int):
     score = score = get_object_or_404(Score, id=score_id, user=request.user)
     
     return render(request, 'pages/specific_score.html', {"score": score})
-
-
-@login_required
-def add_score(request):
-    """
-    Page with form that allows the user to add new forms
-    """
-    
-    if request.method == "POST":
-        score_form_helper(request, 'welcome')  # redirect after success
-    else:
-        form = ScoreCreateForm()
-
-    return render(request, "pages/create_score.html", {"form": form})
-    
+   
     
 
 @login_required
