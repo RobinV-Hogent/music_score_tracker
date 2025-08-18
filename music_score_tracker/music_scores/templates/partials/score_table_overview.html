@@ -1,1 +1,28 @@
-<p>overview</p>
+<table cellpadding="5">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Difficulty</th>
+            <th>Instrument</th>
+            <th>Measures</th>
+            <th>BPM</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for score in scores %}
+        <tr>
+            <td>{{ score.title }}</td>
+            <td>{{ score.difficulty }}</td>
+            <td>{{ score.instrument }}</td>
+            <td>{{ score.measure_count }}</td>
+            <td>{{ score.beats_per_minute }}</td>
+            <td>{{ score.user.username }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No scores found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

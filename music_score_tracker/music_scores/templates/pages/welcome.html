@@ -16,7 +16,12 @@
     </div>
 
     <div style="margin-bottom: 80px;">
+
+        <a href="{% url 'add_score' %}">
         {% include "partials/button.html" with button_title="Add!" button_style="big" %}
+        </a>
+
+        
     </div>
 
 {% endblock page_desc %}

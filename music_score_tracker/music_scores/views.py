@@ -10,7 +10,7 @@ def welcome(request):
 
 @login_required
 def score_list(request):
-    return render(request, 'pages/score_list.html', {'scores': [Score(title='Tanz'), Score(title='Mazurka')]})
+    return render(request, 'pages/score_list.html', {'scores': Score.objects.all()})
 
 
 @login_required

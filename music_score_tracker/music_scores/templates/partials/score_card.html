@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    user-select: none;
+    cursor: pointer;
 }
 
 .score_card__preview {
@@ -46,6 +48,7 @@
 <div class="score_card">
     <div class="score_card__preview">
         <div class="score_card_instrument">{{ score.instrument }}</div>
+        {% comment %} TODO: image is not dynamic (aws s3?) {% endcomment %}
         <img class="score_card_img" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusescore.com%2Fstatic%2Fmusescore%2Fscoredata%2Fgen%2F0%2F7%2F2%2F5116270%2Fca66431f1ede3525d6030af36520961caee810c3%2Fscore_0.png%40850x1100%3Fno-cache%3D1545791262%26bgclr%3Dffffff&f=1&nofb=1&ipt=4c062ff92da6acce80c93ee725313667807a470f278de15f825e488f24c1a3f6" alt="">
     </div>
     <div>

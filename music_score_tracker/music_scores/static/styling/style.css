@@ -62,3 +62,38 @@ h2 {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table td, table th, table {
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+table th {
+    color: royalblue;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+table td {
+     border-bottom: 1px solid rgb(193, 193, 193);
+    padding: 10px 0;
+}
+
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
