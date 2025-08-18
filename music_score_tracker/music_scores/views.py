@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Score
 
@@ -15,3 +15,44 @@ def score_list(request):
 @login_required
 def learning(request):
     return render(request, 'pages/learning.html')
+
+
+@login_required
+def specific_score(request):
+    """
+    Renders the page of a specific score
+    This page shows the properties of this score
+    Feedback should also be shown here
+    Users can add feedback to the score
+    """
+    
+    return render(request, '<h1>Score Page</h1>')
+
+
+@login_required
+def add_score(request):
+    """
+    Page with form that allows the user to add new forms
+    """
+    
+    if request.method == "POST":
+        # Add the post to the database
+        # Redirect to the new page with the newly created Score
+        ...
+    
+    # If the method was GET, send the user to the page with the form
+    
+    # return render(request, '<p>lol</p>')
+    return HttpResponse("<h1>Hello, World!</h1><p>This is raw HTML.</p>")
+
+@login_required
+def add_feedback_to_score(request):
+    """
+    Adds feedback to a specific score
+    This will send the user back to the page of the score they had initially clicked on
+    """
+    
+    # Add feedback to the current score.
+    # Send the user back to the specific score page 
+    
+    return render(request, '<p>Test</p>')
