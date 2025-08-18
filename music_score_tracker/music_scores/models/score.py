@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ..enums import ScoreSignatures, ScoreDifficulty, ScoreInstrument
+from music_scores.enums import ScoreSignatures, ScoreDifficulty, ScoreInstrument
 from enum import Enum
 
 # Create your models here.

@@ -36,3 +36,29 @@ h2 {
     width: 50%;
     color: gray;
 }
+
+.form {
+    width: 50%;
+    max-width: 300px;
+}
+
+.form > p {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-bottom: 15px;
+}
+
+.form label {
+    color: royalblue;
+    font-weight: bold;
+}
+
+.form input, .form select {
+    padding: 5px 10px;
+    color: black;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}

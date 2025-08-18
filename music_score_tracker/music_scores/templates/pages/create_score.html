@@ -1,6 +1,21 @@
-<h2>Create New Score</h2>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
+{% extends "layout/base.html" %}
+
+
+{% block page_title %}Create New Score{% endblock page_title %}
+
+{% block page_content %}
+
+
+<form method="POST" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+  
+
+    <div style="margin-top: 20px">
+    {% include 'partials/button.html' with type='submit' button_title='Save!'  %}
+    </div>
+
 </form>
+
+{% endblock page_content %}
+

@@ -39,10 +39,10 @@ def add_score(request):
     if request.method == "POST":
         form = ScoreCreateForm(request.POST)
         if form.is_valid():
-            score = form.save(commit=False)
+            score: Score = form.save(commit=False)
             score.user = request.user   # attach logged-in user
             score.save()
-            return redirect("score_detail", id=score.id)  # redirect after success
+            return redirect("welcome")  # redirect after success
     else:
         form = ScoreCreateForm()
 

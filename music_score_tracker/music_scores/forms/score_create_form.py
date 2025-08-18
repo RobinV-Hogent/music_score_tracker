@@ -1,5 +1,5 @@
 from django import forms
-from ..models import Score
+from music_scores.models import Score
 
 class ScoreCreateForm(forms.ModelForm):
     class Meta:
