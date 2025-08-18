@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Score
 from .forms import ScoreCreateForm
@@ -27,7 +27,7 @@ def specific_score(request, score_id:int):
     Users can add feedback to the score
     """
     
-    score = Score.objects.get(id=score_id)
+    score = score = get_object_or_404(Score, id=score_id, user=request.user)
     
     return render(request, 'pages/specific_score.html', {"score": score})
 
