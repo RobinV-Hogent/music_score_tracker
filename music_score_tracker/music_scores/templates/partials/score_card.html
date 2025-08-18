@@ -43,8 +43,13 @@
     word-wrap: break-word;
 }
 
+a {
+    text-decoration: none;
+}
+
 </style>
 
+<a href="{% url "specific_score" score_id=score.id %}">
 <div class="score_card">
     <div class="score_card__preview">
         <div class="score_card_instrument">{{ score.instrument }}</div>
@@ -56,3 +61,4 @@
         <p>{{ score.difficulty|default:'{score_diff_unknown}' }}</p>
     </div>
 </div>
+</a>

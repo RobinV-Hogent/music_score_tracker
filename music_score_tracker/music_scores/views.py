@@ -19,7 +19,7 @@ def learning(request):
 
 
 @login_required
-def specific_score(request):
+def specific_score(request, score_id:int):
     """
     Renders the page of a specific score
     This page shows the properties of this score
@@ -27,7 +27,9 @@ def specific_score(request):
     Users can add feedback to the score
     """
     
-    return render(request, '<h1>Score Page</h1>')
+    score = Score.objects.get(id=score_id)
+    
+    return render(request, 'pages/specific_score.html', {"score": score})
 
 
 @login_required
