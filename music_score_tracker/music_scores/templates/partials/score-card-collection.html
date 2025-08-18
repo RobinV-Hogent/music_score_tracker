@@ -1,18 +1,22 @@
 <style>
-
-    .score_card-collection {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 50px;
-    }
-
+  .score_card-collection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+  }
 </style>
 
-<div class="score_card-collection">
-
-    {% for score in scores %}
-        {% include "partials/score_card.html" with score=score %}
-    {% endfor %}
-
-
+<div class="score_card-collection" 
+    style="{% if scores|length == 0 %}
+        display: block;
+    {% else %}
+        display: grid;
+    {% endif %}">
+  {% for score in scores %}
+    {% include 'partials/score_card.html' with score=score %}
+  {% empty %}
+      <p style="font-weight: bold; margin-bottom: 30px">You have never made a score!</p>
+      {% include 'partials/score_form.html' %}
+    </div>
+  {% endfor %}
 </div>

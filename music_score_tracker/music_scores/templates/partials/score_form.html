@@ -1,0 +1,10 @@
+<form method="POST" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+  
+
+    <div style="margin-top: 20px">
+    {% include 'partials/button.html' with type='submit' button_title='Save!'  %}
+    </div>
+
+</form>

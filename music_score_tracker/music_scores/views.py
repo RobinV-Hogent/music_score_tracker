@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Score
 from .forms import ScoreCreateForm
@@ -6,7 +6,24 @@ from .forms import ScoreCreateForm
 # Create your views here.
 @login_required
 def welcome(request):
-    return render(request, 'pages/welcome.html', {'scores': Score.objects.all()})
+    
+    if request.method == 'POST':
+        score_form_helper(request, 'welcome')
+    
+    scores = scores = Score.objects.filter(user=request.user)
+    form = ScoreCreateForm()
+    
+    
+    return render(request, 'pages/welcome.html', {'scores': scores, 'form': form})
+
+def score_form_helper(request, page):
+    form = ScoreCreateForm(request.POST)
+    if form.is_valid():
+        score: Score = form.save(commit=False)
+        score.user = request.user   # attach logged-in user
+        score.save()
+        return redirect(page)
+    
 
 @login_required
 def score_list(request):
@@ -39,12 +56,7 @@ def add_score(request):
     """
     
     if request.method == "POST":
-        form = ScoreCreateForm(request.POST)
-        if form.is_valid():
-            score: Score = form.save(commit=False)
-            score.user = request.user   # attach logged-in user
-            score.save()
-            return redirect("welcome")  # redirect after success
+        score_form_helper(request, 'welcome')  # redirect after success
     else:
         form = ScoreCreateForm()
 
