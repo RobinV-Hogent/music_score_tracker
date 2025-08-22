@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Score
+from music_scores.models import Score, Feedback
 from .forms import ScoreCreateForm
 
 # Create your views here.
@@ -60,9 +60,14 @@ def specific_score(request, score_id:int):
     Users can add feedback to the score
     """
     
-    score = score = get_object_or_404(Score, id=score_id, user=request.user)
     
-    return render(request, 'pages/specific_score.html', {"score": score})
+    score = get_object_or_404(Score, id=score_id, user=request.user)
+    
+    f1 = Feedback.objects.create(score=score, content='Get better', user=request.user) 
+    
+    score = get_object_or_404(Score, id=score_id, user=request.user)
+    
+    return render(request, 'pages/specific_score.html', {"score": score, "feedback": score.feedback.all()})
    
     
 

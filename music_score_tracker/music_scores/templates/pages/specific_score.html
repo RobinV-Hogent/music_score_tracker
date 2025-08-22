@@ -69,7 +69,11 @@
         <div class="add-feedback-button">+</div>
         <h2 class="score-feedback">Feedback</h2>
         
-        {% include 'partials/feedback_card.html' with date='30/09/2002' feedback='play slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slower' %}
+        {% for f in feedback %}
+        <div style="margin: 20px 0">
+            {% include 'partials/feedback_card.html' with date=f.date feedback=f.content %}        
+        </div>
+        {% endfor %}
     </div>
 </div>
 
