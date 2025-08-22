@@ -1,0 +1,31 @@
+<style>
+
+    .feedback-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        background-color: white;
+        line-height: 1.6rem;
+    }
+
+    .feedback-card span {
+        color: gray;
+    }
+
+    .feedback-card p {
+        font-style: italic;
+    }
+
+    .feedback-card p span {
+        color: black;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+</style>
+
+<div class="feedback-card">
+    <span>{{date}}</span>
+    <p><span>Feedback:</span> {{feedback}}</p>
+</div>

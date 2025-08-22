@@ -1,5 +1,76 @@
 {% extends "layout/base.html" %}
 
+
+
+{% block page_title %}
+    {{score.title}} | {{score.difficulty}}
+{% endblock page_title %}
+
+
 {% block page_content %}
-{{score.title}}
+
+<style>
+
+    .specific-score-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .score-img img {
+        width: 100%;
+    }
+
+    .score-feedback {
+        color: royalblue;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .feedback-section {
+        position: relative;
+    }
+
+    .add-feedback-button {
+        position: absolute;
+        right: -20px;
+        top: -10px;
+        font-size: 1.5rem;
+        color: white;
+        width: 50px;
+        aspect-ratio: 1/1;
+        font-weight: bold;
+        border-radius: 1000px;
+        background-color: royalblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.075);
+        }
+    }
+
+</style>
+
+
+<div class="specific-score-layout">
+    <div class="score-img">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb1%2F9d%2F32%2Fb19d32e2f596892741e8028c22a8a3ff.png&f=1&nofb=1&ipt=51b1b04a9b3cfba253298531a5fe51dcf4394b7bc7d433096b2acb466c58622f" alt="">
+    </div>
+    <div class="feedback-section">
+        <div class="add-feedback-button">+</div>
+        <h2 class="score-feedback">Feedback</h2>
+        
+        {% include 'partials/feedback_card.html' with date='30/09/2002' feedback='play slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slowerplay slower' %}
+    </div>
+</div>
+
 {% endblock page_content %}
